@@ -4,8 +4,10 @@
 ## prerequisite
 * Terraform:
   * https://www.terraform.io/downloads.html
+  * you should be able to run `terraform -help`
 * Azure CLI:
   * https://docs.microsoft.com/cli/azure
+  * you should be able to run `az login`
 
 ## Nice to have
 * Github client:
@@ -21,23 +23,20 @@
     * set the variable app_name
     * `app_name = "<INSERT_HERE>"`
 1. Initialize Terraform
-    * `terrafrom init`
+    * `terraform init`
 1. Terraform plan
-    * `terrafrom plan`
-    * you will need to authenticated towards azure if this is'nt allready done.
+    * `terraform plan`
 
-If everything now works, it's time to try to create your environment:
+If everything now works, it's time to create your resources in Azure.
 
-* `terrafrom apply`
+1. Authenticate towards Azure (if you haven't already done this)
+    * `az login`
+1. Create all the resources
+    * `terraform apply`
 
+## Clean up
 
+Remember to clean up and delete all the resources when the testing is done.
 
-## Variables
-For simple and automated integration towards Azure, for instance with the use of [Terraform Cloud](https://www.terraform.io/), you can set the following variables:
+* `terraform destroy`
 
-```
-$Env:ARM_TENANT_ID="<INSERT_HERE>"
-$Env:ARM_SUBSCRIPTION_ID="<INSERT_HERE>"
-$Env:ARM_CLIENT_ID="<INSERT_HERE>"
-$Env:ARM_CLIENT_SECRET="<INSERT_HERE>"
-```
