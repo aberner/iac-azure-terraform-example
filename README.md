@@ -1,4 +1,4 @@
-# Infrastructure as code Example with Terraform setting up Azure resources
+# Infrastructure as Code example with Terraform setting up Azure resources
  Simple azure terraform example
 
 ## prerequisite
