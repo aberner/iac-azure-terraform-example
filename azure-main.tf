@@ -1,13 +1,13 @@
 
 #Configure the Azure Provider
-provider "azurerm" { 
-    version = ">= 2.33"
-    features {}
+provider "azurerm" {
+  version = ">= 2.33"
+  features {}
 }
 
 #Create Resource Group
 resource "azurerm_resource_group" "azure-rg" {
-  name = "${var.app_name}-${var.app_environment}-rg"
+  name     = "${var.app_name}-${var.app_environment}-rg"
   location = var.rg_location
 }
 
@@ -17,7 +17,7 @@ resource "azurerm_virtual_network" "azure-vnet" {
   resource_group_name = azurerm_resource_group.azure-rg.name
   location            = var.rg_location
   address_space       = [var.azure_vnet_cidr]
-  tags = { 
+  tags = {
     environment = var.app_environment
   }
 }
@@ -78,17 +78,17 @@ resource "azurerm_public_ip" "azure-web-ip" {
   location            = azurerm_resource_group.azure-rg.location
   resource_group_name = azurerm_resource_group.azure-rg.name
   allocation_method   = "Static"
-  
-  tags = { 
+
+  tags = {
     environment = var.app_environment
   }
 }
 
 #Create Network Card for Web Server VM
 resource "azurerm_network_interface" "azure-web-nic" {
-  name                      = "${var.app_name}-${var.app_environment}-web-nic"
-  location                  = azurerm_resource_group.azure-rg.location
-  resource_group_name       = azurerm_resource_group.azure-rg.name
+  name                = "${var.app_name}-${var.app_environment}-web-nic"
+  location            = azurerm_resource_group.azure-rg.location
+  resource_group_name = azurerm_resource_group.azure-rg.name
 
   ip_configuration {
     name                          = "internal"
@@ -97,24 +97,24 @@ resource "azurerm_network_interface" "azure-web-nic" {
     public_ip_address_id          = azurerm_public_ip.azure-web-ip.id
   }
 
-  tags = { 
+  tags = {
     environment = var.app_environment
   }
 }
 
 # Create web server vm
 resource "azurerm_virtual_machine" "azure-web-vm" {
-  name                  = "${var.app_name}-${var.app_environment}-web-vm"
-  location              = azurerm_resource_group.azure-rg.location
-  resource_group_name   = azurerm_resource_group.azure-rg.name
-  network_interface_ids = [azurerm_network_interface.azure-web-nic.id]
-  vm_size               = "Standard_B1s"
-  delete_os_disk_on_termination = true
+  name                             = "${var.app_name}-${var.app_environment}-web-vm"
+  location                         = azurerm_resource_group.azure-rg.location
+  resource_group_name              = azurerm_resource_group.azure-rg.name
+  network_interface_ids            = [azurerm_network_interface.azure-web-nic.id]
+  vm_size                          = "Standard_B1s"
+  delete_os_disk_on_termination    = true
   delete_data_disks_on_termination = true
 
   storage_image_reference {
     publisher = var.ubuntu-linux-publisher
-    offer     = var.ubuntu-linux-offer  
+    offer     = var.ubuntu-linux-offer
     sku       = var.ubuntu-linux-18-sku
     version   = "latest"
   }
