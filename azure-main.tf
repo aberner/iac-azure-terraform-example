@@ -27,7 +27,7 @@ resource "azurerm_subnet" "azure-subnet" {
   name                 = "${var.app_name}-${var.app_environment}-subnet"
   resource_group_name  = azurerm_resource_group.azure-rg.name
   virtual_network_name = azurerm_virtual_network.azure-vnet.name
-  address_prefixes     = ["10.0.1.0/24"]
+  address_prefixes     = [var.azure_subnet_cidr]
 }
 
 #Create Security Group to access Web Server
