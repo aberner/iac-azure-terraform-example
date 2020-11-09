@@ -18,7 +18,7 @@ variable "azure_vnet_cidr" {
 variable "azure_subnet_cidr" {
   type        = string
   description = "Subnet CIDR"
-  default     = "[10.2.1.0/24]"
+  default     = "10.2.1.0/24"
 }
 
 # Linux VM Admin User
