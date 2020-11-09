@@ -10,16 +10,26 @@
 ## Nice to have
 * Github client:
   * https://desktop.github.com
+* A source-code editor (IDE)
+  * https://code.visualstudio.com/
 
 
 # USAGE
 
 1. Fork and download
-1. Edit common-variables.tf
-    * set variables that fits your environment
+1. Create the file terraform.tfvars
+    * set the variable app_name
+    * `app_name = "<INSERT_HERE>"`
 1. Initialize Terraform
+    * `terrafrom init`
 1. Terraform plan
-....
+    * `terrafrom plan`
+    * you will need to authenticated towards azure if this is'nt allready done.
+
+If everything now works, it's time to try to create your environment:
+
+* `terrafrom apply`
+
 
 
 ## Variables
