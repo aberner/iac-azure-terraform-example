@@ -18,7 +18,8 @@ resource "azurerm_virtual_network" "azure-vnet" {
   location            = var.rg_location
   address_space       = [var.azure_vnet_cidr]
   tags = {
-    environment = var.app_environment
+    environment = var.app_environment,
+    responsible = var.department_id
   }
 }
 
@@ -62,7 +63,8 @@ resource "azurerm_network_security_group" "azure-web-nsg" {
     destination_address_prefix = "*"
   }
   tags = {
-    environment = var.app_environment
+    environment = var.app_environment,
+    responsible = var.department_id
   }
 }
 
@@ -80,7 +82,8 @@ resource "azurerm_public_ip" "azure-web-ip" {
   allocation_method   = "Static"
 
   tags = {
-    environment = var.app_environment
+    environment = var.app_environment,
+    responsible = var.department_id
   }
 }
 
@@ -98,7 +101,8 @@ resource "azurerm_network_interface" "azure-web-nic" {
   }
 
   tags = {
-    environment = var.app_environment
+    environment = var.app_environment,
+    responsible = var.department_id
   }
 }
 
@@ -165,7 +169,8 @@ resource "azurerm_virtual_machine" "azure-web-vm" {
   }
 
   tags = {
-    environment = var.app_environment
+    environment = var.app_environment,
+    responsible = var.department_id
   }
 }
 

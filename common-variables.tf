@@ -10,3 +10,10 @@ variable "app_environment" {
   description = "Application environment"
   default = "test"
 }
+
+#Define the internal department responsible for the application
+variable "department_id" {
+  type = string
+  description = "Application environment"
+  default = "562301"
+}
