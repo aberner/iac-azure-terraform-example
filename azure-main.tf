@@ -117,9 +117,9 @@ resource "azurerm_virtual_machine" "azure-web-vm" {
   delete_data_disks_on_termination = true
 
   storage_image_reference {
-    publisher = var.ubuntu-linux-publisher
-    offer     = var.ubuntu-linux-offer
-    sku       = var.ubuntu-linux-18-sku
+    publisher = var.kali-linux-publisher
+    offer     = var.kali-linux-offer
+    sku       = var.kali-linux-18-sku
     version   = "latest"
   }
 
