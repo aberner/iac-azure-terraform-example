@@ -1,9 +1,9 @@
-## Welcome to this Infrastructure as Code example
+# Welcome to this Infrastructure as Code example
 
 This example will learn you the basics of Github, Terraform and how to setup resources in Microsoft Azure from code.
 
 
-### Before we start
+## Before we start
 
 **Please be sure to have the following installed:**
 - [Terraform](https://www.terraform.io/downloads.html)

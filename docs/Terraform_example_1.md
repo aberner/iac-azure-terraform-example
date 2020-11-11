@@ -1,5 +1,5 @@
 
-## Add a webserver and content to the webserver
+## Add a webserver and some random content to the webserver
 
 Add the following snipplet to the resource *"azurerm_linux_virtual_machine"*:
 
@@ -35,3 +35,8 @@ Add the following snipplet to the resource *"azurerm_linux_virtual_machine"*:
   ```
 
   This snipplet references a setup.sh file in the repo that adds Apache to the server, and dummy a index.html with some stupid content.
+
+  ## Example
+
+  This branch shows how this is done:
+  - https://github.com/aberner/iac-azure-terraform-example/blob/add-webserver-to-server/azure-main.tf

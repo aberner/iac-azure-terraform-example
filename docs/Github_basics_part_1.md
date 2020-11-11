@@ -1,5 +1,8 @@
 ## Part one: Github basics
 
+Start from scratch, in the end you will end up with a development environment on your computer. Ready to deploy infrastructure.
+
+
 1. **Fork this github project**
    - More info: [https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo](How to fork a repo)
    - Fork the github project https://github.com/aberner/iac-azure-terraform-example/
