@@ -31,6 +31,8 @@ resource "azurerm_subnet" "azure-subnet" {
   address_prefixes     = [var.azure_subnet_cidr]
 }
 
+
+
 #Create Security Group to access Web Server
 resource "azurerm_network_security_group" "azure-web-nsg" {
   name                = "${var.app_name}-${var.app_environment}-web-nsg"
@@ -74,9 +76,13 @@ resource "azurerm_subnet_network_security_group_association" "azure-web-nsg-asso
   network_security_group_id = azurerm_network_security_group.azure-web-nsg.id
 }
 
+
+# for each server
+
+# server1
 #Get a Static Public IP
-resource "azurerm_public_ip" "azure-web-ip" {
-  name                = "${var.app_name}-${var.app_environment}-web-ip"
+resource "azurerm_public_ip" "azure-web-ip1" {
+  name                = "${var.app_name}-${var.app_environment}-web-ip1"
   location            = azurerm_resource_group.azure-rg.location
   resource_group_name = azurerm_resource_group.azure-rg.name
   allocation_method   = "Static"
@@ -88,8 +94,8 @@ resource "azurerm_public_ip" "azure-web-ip" {
 }
 
 #Create Network Card for Web Server VM
-resource "azurerm_network_interface" "azure-web-nic" {
-  name                = "${var.app_name}-${var.app_environment}-web-nic"
+resource "azurerm_network_interface" "azure-web-nic1" {
+  name                = "${var.app_name}-${var.app_environment}-web-nic1"
   location            = azurerm_resource_group.azure-rg.location
   resource_group_name = azurerm_resource_group.azure-rg.name
 
@@ -97,7 +103,7 @@ resource "azurerm_network_interface" "azure-web-nic" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.azure-subnet.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.azure-web-ip.id
+    public_ip_address_id          = azurerm_public_ip.azure-web-ip1.id
   }
 
   tags = {
@@ -107,11 +113,11 @@ resource "azurerm_network_interface" "azure-web-nic" {
 }
 
 # Create web server vm
-resource "azurerm_linux_virtual_machine" "azure-web-vm" {
-  name                             = "${var.app_name}-${var.app_environment}-web-vm"
+resource "azurerm_linux_virtual_machine" "azure-web-vm1" {
+  name                             = "${var.app_name}-${var.app_environment}-web-vm1"
   location                         = azurerm_resource_group.azure-rg.location
   resource_group_name              = azurerm_resource_group.azure-rg.name
-  network_interface_ids            = [azurerm_network_interface.azure-web-nic.id]
+  network_interface_ids            = [azurerm_network_interface.azure-web-nic1.id]
   size                             = "Standard_B1s"
 
   computer_name  = var.linux_vm_hostname
@@ -127,7 +133,7 @@ resource "azurerm_linux_virtual_machine" "azure-web-vm" {
   }
 
   os_disk {
-    name              = "${var.app_name}-${var.app_environment}-web-vm-os-disk"
+    name              = "${var.app_name}-${var.app_environment}-web-vm-os-disk1"
     caching           = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
@@ -142,7 +148,7 @@ resource "azurerm_linux_virtual_machine" "azure-web-vm" {
       type     = "ssh"
       user     = var.linux_admin_user
       password = var.linux_admin_password
-      host     = azurerm_public_ip.azure-web-ip.ip_address
+      host     = azurerm_public_ip.azure-web-ip1.ip_address
     }
   }
 
@@ -157,7 +163,7 @@ resource "azurerm_linux_virtual_machine" "azure-web-vm" {
       type     = "ssh"
       user     = var.linux_admin_user
       password = var.linux_admin_password
-      host     = azurerm_public_ip.azure-web-ip.ip_address
+      host     = azurerm_public_ip.azure-web-ip1.ip_address
     }
   }
 
@@ -167,7 +173,108 @@ resource "azurerm_linux_virtual_machine" "azure-web-vm" {
   }
 }
 
-#Output
-output "external-ip-azure-web-server" {
-  value = azurerm_public_ip.azure-web-ip.ip_address
+
+# server2
+#Get a Static Public IP
+resource "azurerm_public_ip" "azure-web-ip2" {
+  name                = "${var.app_name}-${var.app_environment}-web-ip2"
+  location            = azurerm_resource_group.azure-rg.location
+  resource_group_name = azurerm_resource_group.azure-rg.name
+  allocation_method   = "Static"
+
+  tags = {
+    environment = var.app_environment,
+    responsible = var.department_id
+  }
 }
+
+#Create Network Card for Web Server VM
+resource "azurerm_network_interface" "azure-web-nic2" {
+  name                = "${var.app_name}-${var.app_environment}-web-nic2"
+  location            = azurerm_resource_group.azure-rg.location
+  resource_group_name = azurerm_resource_group.azure-rg.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = azurerm_subnet.azure-subnet.id
+    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.azure-web-ip2.id
+  }
+
+  tags = {
+    environment = var.app_environment,
+    responsible = var.department_id
+  }
+}
+
+# Create web server vm
+resource "azurerm_linux_virtual_machine" "azure-web-vm2" {
+  name                             = "${var.app_name}-${var.app_environment}-web-vm2"
+  location                         = azurerm_resource_group.azure-rg.location
+  resource_group_name              = azurerm_resource_group.azure-rg.name
+  network_interface_ids            = [azurerm_network_interface.azure-web-nic2.id]
+  size                             = "Standard_B1s"
+
+  computer_name  = var.linux_vm_hostname
+  admin_username = var.linux_admin_user
+  admin_password = var.linux_admin_password
+  disable_password_authentication = false
+
+  source_image_reference {
+    publisher = var.ubuntu-linux-publisher
+    offer     = var.ubuntu-linux-offer
+    sku       = var.ubuntu-linux-18-sku
+    version   = "latest"
+  }
+
+  os_disk {
+    name              = "${var.app_name}-${var.app_environment}-web-vm-os-disk2"
+    caching           = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+
+  # It's easy to transfer files or templates using Terraform.
+  provisioner "file" {
+    source      = "files/setup.sh"
+    destination = "/home/${var.linux_admin_user}/setup.sh"
+
+    connection {
+      type     = "ssh"
+      user     = var.linux_admin_user
+      password = var.linux_admin_password
+      host     = azurerm_public_ip.azure-web-ip2.ip_address
+    }
+  }
+
+  # This shell script starts our Apache server and prepares the demo environment.
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /home/${var.linux_admin_user}/setup.sh",
+      "sudo /home/${var.linux_admin_user}/setup.sh",
+    ]
+
+    connection {
+      type     = "ssh"
+      user     = var.linux_admin_user
+      password = var.linux_admin_password
+      host     = azurerm_public_ip.azure-web-ip2.ip_address
+    }
+  }
+
+  tags = {
+    environment = var.app_environment,
+    responsible = var.department_id
+  }
+}
+
+
+
+#Output
+output "external-ip-azure-web-server1" {
+  value = azurerm_public_ip.azure-web-ip1.ip_address
+}
+output "external-ip-azure-web-server2" {
+  value = azurerm_public_ip.azure-web-ip2.ip_address
+}
+
