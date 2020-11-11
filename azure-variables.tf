@@ -63,23 +63,3 @@ variable "ubuntu-linux-18-sku" {
   default     = "18.04-LTS"
 }
 
-# Kali Linux Publisher used to build VMs
-variable "kali-linux-publisher" {
-  type        = string
-  description = "Kali Linux Publisher used to build VMs"
-  default     = "kali-linux"
-}
-
-# Kali Linux Offer used to build VMs
-variable "kali-linux-offer" {
-  type        = string
-  description = "Kali Linux Offer used to build VMs"
-  default     = "kali-linux"
-}
-
-# Kali Linux 18.x SKU used to build VMs
-variable "kali-linux-18-sku" {
-  type        = string
-  description = "Kali Linux Server SKU used to build VMs"
-  default     = "DS1_v2"
-}

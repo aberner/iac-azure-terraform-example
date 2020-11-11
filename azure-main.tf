@@ -107,38 +107,31 @@ resource "azurerm_network_interface" "azure-web-nic" {
 }
 
 # Create web server vm
-resource "azurerm_virtual_machine" "azure-web-vm" {
+resource "azurerm_linux_virtual_machine" "azure-web-vm" {
   name                             = "${var.app_name}-${var.app_environment}-web-vm"
   location                         = azurerm_resource_group.azure-rg.location
   resource_group_name              = azurerm_resource_group.azure-rg.name
   network_interface_ids            = [azurerm_network_interface.azure-web-nic.id]
-  vm_size                          = "Standard_B1s"
-  delete_os_disk_on_termination    = true
-  delete_data_disks_on_termination = true
+  size                             = "Standard_B1s"
 
-  storage_image_reference {
-    publisher = var.kali-linux-publisher
-    offer     = var.kali-linux-offer
-    sku       = var.kali-linux-18-sku
+  computer_name  = var.linux_vm_hostname
+  admin_username = var.linux_admin_user
+  admin_password = var.linux_admin_password
+  disable_password_authentication = false
+
+  source_image_reference {
+    publisher = var.ubuntu-linux-publisher
+    offer     = var.ubuntu-linux-offer
+    sku       = var.ubuntu-linux-18-sku
     version   = "latest"
   }
 
-  storage_os_disk {
+  os_disk {
     name              = "${var.app_name}-${var.app_environment}-web-vm-os-disk"
     caching           = "ReadWrite"
-    create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
+    storage_account_type = "Standard_LRS"
   }
 
-  os_profile {
-    computer_name  = var.linux_vm_hostname
-    admin_username = var.linux_admin_user
-    admin_password = var.linux_admin_password
-  }
-
-  os_profile_linux_config {
-    disable_password_authentication = false
-  }
 
   # It's easy to transfer files or templates using Terraform.
   provisioner "file" {
