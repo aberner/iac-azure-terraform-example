@@ -1,21 +1,21 @@
-## Welcome to this Infrastructure as Code Example
+## Welcome to this Infrastructure as Code example
 
-This example will setup resources in Microsoft Azure.
+This example will learn you the basics of Github, Terraform and how to setup resources in Microsoft Azure from code.
 
 
 ### Before we start
 
-Please be sure to have the following installed:
-- Terraform: https://www.terraform.io/downloads.html
+**Please be sure to have the following installed:**
+- [Terraform](https://www.terraform.io/downloads.html)
    - you should be able to run terraform -help
-- Azure CLI: https://docs.microsoft.com/cli/azure
+- [Azure CLI](https://docs.microsoft.com/cli/azure)
    - you should be able to run az login
-- Github account
+**Github account**
+- Create your own [Github account](https://github.com/join)
 
-You should have the following as well:
-
--  A Github client: https://desktop.github.com
-- A source-code editor (IDE): https://code.visualstudio.com/
+**You should have the following as well:**
+-  A [Github client](https://desktop.github.com)
+- A [source-code editor (IDE)](https://code.visualstudio.com/)
 
 ### Lessons
 
