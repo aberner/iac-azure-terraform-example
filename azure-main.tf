@@ -5,6 +5,15 @@ provider "azurerm" {
   features {}
 }
 
+#Configure remote state to be saved in Azure storageaccount
+backend "azurerm" { 
+
+    resource_group_name  = "createme" 
+    storage_account_name = "createme" 
+    container_name       = "createme" 
+    key                  = "somethingsmart.tfstate" 
+  } 
+  
 #Create Resource Group
 resource "azurerm_resource_group" "azure-rg" {
   name     = "${var.app_name}-${var.app_environment}-rg"
