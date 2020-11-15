@@ -4,8 +4,8 @@ Start from scratch, in the end you will end up with a development environment on
 
 
 1. **Fork this github project**
-   - More info: [https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo](How to fork a repo)
-   - Fork the github project https://github.com/aberner/iac-azure-terraform-example/
+   - More info: [How to fork a repo](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
+   - Fork the [this github project](https://github.com/aberner/iac-azure-terraform-example/)
 
 
 **Result:**
