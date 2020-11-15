@@ -3,7 +3,11 @@
 
 @import "{{ site.theme }}";
 .main-content {
-    h1 {
+    h3 {
      color: #ff0000;
    }
   }
+
+.page-header {
+    padding: 2rem 6rem;
+}
