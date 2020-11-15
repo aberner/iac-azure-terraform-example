@@ -9,11 +9,13 @@ This is needed to collaborate with others on Github.
    - Branching is the way to work on different versions of a repository at one time. By default your repository has one branch named ```main```
    - ```main``` should always represent the state in production, ergo all changes should be made on separte feature branches
    - 2 min introduction to branches: [GitHub & Git Foundations: Branch (youtube)](https://www.youtube.com/watch?v=H5GJfcp3p4Q&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=2)
-   - Choose: "New Branch" in Github Desktop, name: ```adding-sqlserver```
-   - You now get the choice between: ```Leave my changes on main``` or ```Bring my changes to adding-sqlserver```, choose ```Leave my changes on main```
-   - Now Publish your new branch to GitHub
-   - Do a code change, see example below
-   - Commit and push your changes to Github
+
+**Exercise:**
+   1. Choose: "New Branch" in Github Desktop, name: ```adding-sqlserver```
+   1. You now get the choice between: ```Leave my changes on main``` or ```Bring my changes to adding-sqlserver```, choose ```Leave my changes on main```
+   1. Now Publish your new branch to GitHub
+   1. Do a code change, see example below
+   1. Commit and push your changes to Github
 
 **Result:**
 ```
@@ -64,6 +66,13 @@ resource "azurerm_mssql_database" "test" {
    - Pull Requests are the heart of collaboration on GitHub. 
    - When you open a pull request, you’re proposing your changes and requesting that your change will be reviewed and merged into the target branch
 
+**Exercise:**
+   1. 
+
+**Result:**
+```
+    This will create a new Pull request and show if the pull request can be automatically merged or not.
+```
 
 # More information
 
