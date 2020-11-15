@@ -65,6 +65,7 @@ resource "azurerm_mssql_database" "test" {
 ### Github Pull requests. The basics
    - Pull Requests are the heart of collaboration on GitHub. 
    - When you open a pull request, you’re proposing your changes and requesting that your change will be reviewed and merged into the target branch
+   - More info: https://docs.github.com/articles/using-pull-requests
 
 **Exercise:**
    1. Go to your project on https://github.com and choose ```Pull requests```
@@ -74,13 +75,17 @@ resource "azurerm_mssql_database" "test" {
       1. Then choose where your changes are stored now
       1. When you have reviewed the changes and Github has confirmed that this merged can be done automatically, your ready for the next step.
    1. The next step is creating the Pull request
-      1. 
+      1. Here you can assign Reviewers and other project specific details about your change, before creating it
+      1. Now the task of reviewing and acception the change should be given to a co-worker
+   1. You finish the Pull request with either just ```Closing the request``` without accepting the request or ```merge pull request``` if you accept it
+      1. It is in this step all automatic integrationtests should be done
+
 
 Note: If you need to, you can also compare across forks. 
 
 **Result:**
 ```
-    This will create a new Pull request and show if the pull request can be automatically merged or not.
+    All your changes are now moved to your target branch and the Pull request is closed.
 ```
 
 # More information
