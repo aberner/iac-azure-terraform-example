@@ -67,7 +67,16 @@ resource "azurerm_mssql_database" "test" {
    - When you open a pull request, you’re proposing your changes and requesting that your change will be reviewed and merged into the target branch
 
 **Exercise:**
-   1. 
+   1. Go to your project on https://github.com and choose ```Pull requests```
+   1. The list should be empty, so start with ```New pull request```
+   1. In this first step you compare the changes and Github analysis if it's able to merge the two branches automatically 
+      1. First choose where you want the changes to end up, your target branch
+      1. Then choose where your changes are stored now
+      1. When you have reviewed the changes and Github has confirmed that this merged can be done automatically, your ready for the next step.
+   1. The next step is creating the Pull request
+      1. 
+
+Note: If you need to, you can also compare across forks. 
 
 **Result:**
 ```
