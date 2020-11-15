@@ -79,6 +79,10 @@ resource "azurerm_mssql_database" "test" {
       1. Now the task of reviewing and acception the change should be given to a co-worker
    1. You finish the Pull request with either just ```Closing the request``` without accepting the request or ```merge pull request``` if you accept it
       1. It is in this step all automatic integrationtests should be done
+   1. ```Delete branch``` is an recommended option that you have after merging is done
+      - It is normal to keep a feature branch clean and only implement one feature on it before merging. In these cases you should always delete your branch.
+      - Without deleting old feature branches you will end up with a lot of branches (chaos)
+      - Yes, you could have end up with a bugfix for your new feature, but then that should also be it's own branch.
 
 
 Note: If you need to, you can also compare across forks. 
