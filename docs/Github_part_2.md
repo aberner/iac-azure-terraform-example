@@ -19,48 +19,12 @@ This is needed to collaborate with others on Github.
 
 **Result:**
 ```
-    This will create a new branch in your repository with your changes.
-    The Main-branch will still
+    This will create a new branch in your repository where your new changes will live.
+    The Main-branch will exist untouched and represent your production state.
 ```
 
-#### Example code change
-   - Here is an example change that you can do on your new feature branch
-
-```
-#add the following to azure-main.tf
-
-resource "azurerm_sql_server" "azure-sqlserver" {
-  name                         = "${var.app_name}-${var.app_environment}-sqlserver"
-  resource_group_name          = azurerm_resource_group.azure-rg.name
-  location                     = azurerm_resource_group.azure-rg.location
-  version                      = "12.0"
-  administrator_login          = var.linux_admin_user
-  administrator_login_password = var.linux_admin_password
-
-  tags = {
-    environment = var.app_environment,
-    responsible = var.department_id
-  }
-}
-
-resource "azurerm_mssql_database" "test" {
-  name           = "${var.app_name}-${var.app_environment}-sqldb"
-  server_id      = azurerm_sql_server.azure-sqlserver.id
-  collation      = "SQL_Latin1_General_CP1_CI_AS"
-  license_type   = "LicenseIncluded"
-  max_size_gb    = 4
-  read_scale     = true
-  sku_name       = "BC_Gen5_2"
-  zone_redundant = true
-
-  tags = {
-    environment = var.app_environment,
-    responsible = var.department_id
-  }
-
-}
-```
-
+### Example code change
+   - Here is an example you can implement on your new feature branch: [Example: Adding a SQL server resource](Terraform_example_2.html)
 
 ### Github Pull requests. The basics
    - Pull Requests are the heart of collaboration on GitHub. 
