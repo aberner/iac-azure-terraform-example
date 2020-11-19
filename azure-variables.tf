@@ -32,7 +32,6 @@ variable "linux_admin_user" {
 variable "linux_admin_password" {
   type        = string
   description = "Linux VM Admin Password"
-  default     = "S3cr3tP@ssw0rd"
 }
 
 # Linux VM Hostname
