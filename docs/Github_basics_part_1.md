@@ -30,7 +30,7 @@ Starting from scratch, in the end of this you will end up with a development env
 ### Step 3: The files listed in .gitignore will not be added to git
    - More info: [gitignore](https://git-scm.com/docs/gitignore)
    - Specifies intentionally untracked files to ignore
-   - **Action:**   Create the file: terraform.tfvars 
+   - **Action:**   Create the file: terraform.tfvars in the root folder of the project 
    - This file will not be included in git because of .gitignore
 
  **example:** *terraform.tfvars*
