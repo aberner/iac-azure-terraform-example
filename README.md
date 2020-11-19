@@ -1,5 +1,10 @@
 # Infrastructure as Code example with Terraform setting up Azure resources
  Simple azure terraform example
+ 
+**Step-by-step introduction here**
+- https://aberner.github.io/iac-azure-terraform-example/
+ 
+ # Quick guide:
 
 ## prerequisite
 * Terraform:
