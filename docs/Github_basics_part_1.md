@@ -35,8 +35,9 @@ Starting from scratch, in the end of this you will end up with a development env
 
  **example:** *terraform.tfvars*
 ```
-#Define application name
-app_name = "arb123"
+# local file, that is'nt under versioncontrol
+#Define application name, used to prefix all resources with your unique name
+app_name = "<insert_your_unique_name"
 ```
 
 ---
