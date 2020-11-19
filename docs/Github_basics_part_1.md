@@ -47,14 +47,37 @@ app_name = "<insert_your_unique_name"
 
 ---
 
-### Step 5: Do your changes and commit
+### Step 5: Do a change
+  - There is a default value in the file ```azure-variable.tf``` containing a default password. This should be removed.
+
+ **File:** *azure-variable.tf*
+```
+# remove the following line
+default     = "S3cr3tP@ssw0rd"
+```
+ **File:** *terraform.tfvars*
+```
+# add the following line
+linux_admin_password = "<your secret pwd>"
+```
+
+*Note:* The password should be stored in a Vault, but that is not covered by this introduction
+
+**Result:**
+```
+    The password is now moved to a file that is only stored on your PC and the changed file azure-variable.tf is ready to be pushed to git.
+```
+
+---
+
+### Step 6: Commit
   - More info: [Git commit](https://github.com/git-guides/git-commit)
   - This will only commit you changes to your local clone of the project
   - **Remember** Always add a commit message describing the change
 
 ---
 
-### Step 6: Push your changes to github
+### Step 7: Push your changes to github
   - More info: [Git push](https://github.com/git-guides/git-push)
   - This uploads all local branch commits to the corresponding remote branch.
 
