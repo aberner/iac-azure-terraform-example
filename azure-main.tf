@@ -1,3 +1,13 @@
+#Configure remote state to be saved in Azure storageaccount
+terraform {
+  backend "azurerm" {
+
+    resource_group_name  = "createme"
+    storage_account_name = "createme"
+    container_name       = "createme"
+    key                  = "somethingsmart.tfstate"
+  }
+}
 
 #Configure the Azure Provider
 provider "azurerm" {
@@ -5,15 +15,6 @@ provider "azurerm" {
   features {}
 }
 
-#Configure remote state to be saved in Azure storageaccount
-backend "azurerm" { 
-
-    resource_group_name  = "createme" 
-    storage_account_name = "createme" 
-    container_name       = "createme" 
-    key                  = "somethingsmart.tfstate" 
-  } 
-  
 #Create Resource Group
 resource "azurerm_resource_group" "azure-rg" {
   name     = "${var.app_name}-${var.app_environment}-rg"
@@ -117,15 +118,15 @@ resource "azurerm_network_interface" "azure-web-nic" {
 
 # Create web server vm
 resource "azurerm_linux_virtual_machine" "azure-web-vm" {
-  name                             = "${var.app_name}-${var.app_environment}-web-vm"
-  location                         = azurerm_resource_group.azure-rg.location
-  resource_group_name              = azurerm_resource_group.azure-rg.name
-  network_interface_ids            = [azurerm_network_interface.azure-web-nic.id]
-  size                             = "Standard_B1s"
+  name                  = "${var.app_name}-${var.app_environment}-web-vm"
+  location              = azurerm_resource_group.azure-rg.location
+  resource_group_name   = azurerm_resource_group.azure-rg.name
+  network_interface_ids = [azurerm_network_interface.azure-web-nic.id]
+  size                  = "Standard_B1s"
 
-  computer_name  = var.linux_vm_hostname
-  admin_username = var.linux_admin_user
-  admin_password = var.linux_admin_password
+  computer_name                   = var.linux_vm_hostname
+  admin_username                  = var.linux_admin_user
+  admin_password                  = var.linux_admin_password
   disable_password_authentication = false
 
   source_image_reference {
@@ -136,8 +137,8 @@ resource "azurerm_linux_virtual_machine" "azure-web-vm" {
   }
 
   os_disk {
-    name              = "${var.app_name}-${var.app_environment}-web-vm-os-disk"
-    caching           = "ReadWrite"
+    name                 = "${var.app_name}-${var.app_environment}-web-vm-os-disk"
+    caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
 
