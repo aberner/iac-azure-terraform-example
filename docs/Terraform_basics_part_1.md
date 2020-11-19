@@ -142,7 +142,20 @@ commands will detect it and remind you to do so if necessary.
 - Run ```terraform apply```
 #### If you used the out parameter in the last step, make sure to use terraform apply "myplan"
 
+Take a note of the IP you got after the process finished.
+
+
 ---
+
+
+### Step 5 - Verify
+
+Now we can open our portal again, locate our resources and confirm that we've created all the resources we wanted to.
+
+Open a new tab in your browser, enter the IP for the webserver you just created. Is something missing?
+
+---
+
 
 ## Terraform apply/destroy -target=""
 
@@ -156,6 +169,7 @@ terraform destroy -target="azurerm_linux_virtual_machine.azure-web-vm"
 
 ---
 
-## Cleanup
+
+## Cleanup -  DO NOT DO THIS YET!
 
 - Run ```terraform destroy```
