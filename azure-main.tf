@@ -1,3 +1,13 @@
+#Configure the state location
+terraform {
+  backend "azurerm" {
+    resource_group_name   = "arb-terraform-state-storage"
+    storage_account_name  = "arbtfstorageaccount"
+    container_name        = "tfstate"
+    key                   = "terraform.tfstate"
+  }
+}
+
 #Configure the Azure Provider
 provider "azurerm" {
   version = ">= 2.33"
@@ -30,9 +40,10 @@ resource "azurerm_subnet" "azure-subnet" {
   address_prefixes     = [var.azure_subnet_cidr]
 }
 
-#Create Security Group to access Web Server
-resource "azurerm_network_security_group" "azure-web-nsg" {
-  name                = "${var.app_name}-${var.app_environment}-web-nsg"
+
+#Create Security Group to access both Web Server and windows server
+resource "azurerm_network_security_group" "azure-nsg" {
+  name                = "${var.app_name}-${var.app_environment}-nsg"
   location            = azurerm_resource_group.azure-rg.location
   resource_group_name = azurerm_resource_group.azure-rg.name
 
@@ -52,12 +63,25 @@ resource "azurerm_network_security_group" "azure-web-nsg" {
   security_rule {
     name                       = "AllowSSH"
     description                = "Allow SSH"
-    priority                   = 101
+    priority                   = 102
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
+    source_address_prefix      = "Internet"
+    destination_address_prefix = "*"
+  }
+
+  security_rule {
+    name                       = "AllowRDP"
+    description                = "Allow RDP"
+    priority                   = 101
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "3389"
     source_address_prefix      = "Internet"
     destination_address_prefix = "*"
   }
@@ -67,77 +91,9 @@ resource "azurerm_network_security_group" "azure-web-nsg" {
   }
 }
 
+
 #Associate the Web NSG with the subnet
-resource "azurerm_subnet_network_security_group_association" "azure-web-nsg-association" {
+resource "azurerm_subnet_network_security_group_association" "azure-nsg-association" {
   subnet_id                 = azurerm_subnet.azure-subnet.id
-  network_security_group_id = azurerm_network_security_group.azure-web-nsg.id
-}
-
-#Get a Static Public IP
-resource "azurerm_public_ip" "azure-web-ip" {
-  name                = "${var.app_name}-${var.app_environment}-web-ip"
-  location            = azurerm_resource_group.azure-rg.location
-  resource_group_name = azurerm_resource_group.azure-rg.name
-  allocation_method   = "Static"
-
-  tags = {
-    environment = var.app_environment,
-    responsible = var.department_id
-  }
-}
-
-#Create Network Card for Web Server VM
-resource "azurerm_network_interface" "azure-web-nic" {
-  name                = "${var.app_name}-${var.app_environment}-web-nic"
-  location            = azurerm_resource_group.azure-rg.location
-  resource_group_name = azurerm_resource_group.azure-rg.name
-
-  ip_configuration {
-    name                          = "internal"
-    subnet_id                     = azurerm_subnet.azure-subnet.id
-    private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.azure-web-ip.id
-  }
-
-  tags = {
-    environment = var.app_environment,
-    responsible = var.department_id
-  }
-}
-
-# Create web server vm
-resource "azurerm_linux_virtual_machine" "azure-web-vm" {
-  name                             = "${var.app_name}-${var.app_environment}-web-vm"
-  location                         = azurerm_resource_group.azure-rg.location
-  resource_group_name              = azurerm_resource_group.azure-rg.name
-  network_interface_ids            = [azurerm_network_interface.azure-web-nic.id]
-  size                             = "Standard_B1s"
-
-  computer_name  = var.linux_vm_hostname
-  admin_username = var.linux_admin_user
-  admin_password = var.linux_admin_password
-  disable_password_authentication = false
-
-  source_image_reference {
-    publisher = var.ubuntu-linux-publisher
-    offer     = var.ubuntu-linux-offer
-    sku       = var.ubuntu-linux-18-sku
-    version   = "latest"
-  }
-
-  os_disk {
-    name              = "${var.app_name}-${var.app_environment}-web-vm-os-disk"
-    caching           = "ReadWrite"
-    storage_account_type = "Standard_LRS"
-  }
-
-  tags = {
-    environment = var.app_environment,
-    responsible = var.department_id
-  }
-}
-
-#Output
-output "external-ip-azure-web-server" {
-  value = azurerm_public_ip.azure-web-ip.ip_address
+  network_security_group_id = azurerm_network_security_group.azure-nsg.id
 }
