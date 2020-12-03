@@ -1,5 +1,9 @@
 ## Set up a Azure app service containing the OWASP Juice Shop
 
+- This example dependes on the: [Example - basic network setup](Terraform_example_0.md)
+
+*Note:* This examples requires several properties that needs to be set, see more information in the [Github repo](https://github.com/aberner/iac-azure-terraform-example)
+
 ```
 # first step: create a app-service-plan for Linux, setting the size
 resource "azurerm_app_service_plan" "app-service-plan" {

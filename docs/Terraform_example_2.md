@@ -1,5 +1,9 @@
 ## Adding a SQL server resource
 
+- This example dependes on the: [Example - basic network setup](Terraform_example_0.md)
+
+*Note:* This examples requires several properties that needs to be set, see more information in the [Github repo](https://github.com/aberner/iac-azure-terraform-example)
+
 ```
 #add the following to azure-main.tf
 
