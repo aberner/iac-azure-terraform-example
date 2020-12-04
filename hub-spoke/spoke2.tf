@@ -1,5 +1,5 @@
 locals {
-  spoke2-location       = "norwaywest"
+  spoke2-location       = "northeurope"
   spoke2-resource-group = "spoke2-vnet-rg"
   prefix-spoke2         = "spoke2"
 }

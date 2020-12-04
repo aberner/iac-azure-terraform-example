@@ -1,6 +1,6 @@
 locals {
   prefix-hub         = "hub"
-  hub-location       = "norwaywest"
+  hub-location       = "northeurope"
   hub-resource-group = "hub-vnet-rg"
   shared-key         = var.vpn_key
 }

@@ -1,6 +1,6 @@
 locals {
   prefix-hub-nva         = "hub-nva"
-  hub-nva-location       = "norwaywest"
+  hub-nva-location       = "northeurope"
   hub-nva-resource-group = "hub-nva-rg"
 }
 
