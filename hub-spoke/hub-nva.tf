@@ -69,9 +69,7 @@ resource "azurerm_virtual_machine" "hub-nva-vm" {
 
 resource "azurerm_virtual_machine_extension" "enable-routes" {
   name                 = "enable-iptables-routes"
-  location             = azurerm_resource_group.hub-nva-rg.location
-  resource_group_name  = azurerm_resource_group.hub-nva-rg.name
-  virtual_machine_name = azurerm_virtual_machine.hub-nva-vm.name
+  virtual_machine_id   = azurerm_virtual_machine.hub-nva-vm.id
   publisher            = "Microsoft.Azure.Extensions"
   type                 = "CustomScript"
   type_handler_version = "2.0"
