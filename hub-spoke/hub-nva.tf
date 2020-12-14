@@ -1,11 +1,11 @@
 locals {
   prefix-hub-nva         = "hub-nva"
   hub-nva-location       = "northeurope"
-  hub-nva-resource-group = "hub-nva-rg"
+  hub-nva-resource-group = "${var.rg_prefix}-hub-nva-rg"
 }
 
 resource "azurerm_resource_group" "hub-nva-rg" {
-  name     = "${local.prefix-hub-nva}-rg"
+  name     = "${local.hub-nva-resource-group}-rg"
   location = local.hub-nva-location
 
   tags = {

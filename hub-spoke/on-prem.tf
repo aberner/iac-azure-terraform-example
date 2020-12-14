@@ -1,6 +1,6 @@
 locals {
   onprem-location       = "norwayeast"
-  onprem-resource-group = "onprem-vnet-rg"
+  onprem-resource-group = "${var.rg_prefix}-onprem-vnet-rg"
   prefix-onprem         = "onprem"
 }
 
