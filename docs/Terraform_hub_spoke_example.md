@@ -23,3 +23,26 @@ This example contains the following files:
 
 All example files can be found here:
 - https://github.com/aberner/iac-azure-terraform-example/tree/main/hub-spoke
+
+
+### Local configuration file
+For this example you should have your own ```terraform.tfvars``` stored in the same folder.
+This file contains secrets and must not be under versioncontrol.
+
+```terraform.tfvars``` file should have the following content:
+
+```
+# local file, that is'nt under versioncontrol
+
+# generate your own secret and secure password as vpn_key
+vpn_key="****************"
+# choose your own prefix, identifying your resources
+rg_prefix="****************"
+# choose your own admin username 
+username="arbadmin"
+# generate your own secret and secure password
+password="****************"
+#sub_id can be found using the following command: az account show
+sub_id="****************"
+```
+
