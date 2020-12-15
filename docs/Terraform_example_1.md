@@ -1,7 +1,10 @@
 
 ## Add a webserver and some random content to the webserver
 
+This example depends on the [Example 1 - Setup a linux virtual machine](Terraform_example_1_1.md)
+
 Add the following snipplet to the resource *"azurerm_linux_virtual_machine"*:
+
 
 
 ```

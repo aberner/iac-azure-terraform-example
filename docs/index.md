@@ -21,5 +21,13 @@ This example will learn you the basics of Github, Terraform and how to setup res
 
 - [Github basics part 1](Github_basics_part_1.md)
 - [Terraform basics part 1](Terraform_basics_part_1.md)
-- [Examples](Terraform_examples.md)
+
 - [Github collaboration](Github_part_2.md)
+
+### Examples
+
+- [Terraform examples](Terraform_examples.md)
+
+### Presentation
+
+- [Github basics and a short recap of the setup](Git_basics.pptx)
