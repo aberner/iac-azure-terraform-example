@@ -12,13 +12,13 @@ More information: [https://docs.microsoft.com/en-us/azure/architecture/reference
 ### Example files
 
 This example contains the following files:
-- [https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/main.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/main.tf)
-- [https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/variables.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/variables.tf)
-- [https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/on-prem.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/on-prem.tf)
-- [https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/hub-vnet.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/hub-vnet.tf)
-- [https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/hub-nva.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/hub-nva.tf)
-- [https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/spoke1.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/spoke1.tf)
-- [https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/spoke2.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/hub-spoke/spoke2.tf)
+- [.../hub-spoke/main.tf](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/hub-spoke/main.tf)
+- [.../hub-spoke/variables.tf](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/hub-spoke/variables.tf)
+- [.../hub-spoke/on-prem.tf](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/hub-spoke/on-prem.tf)
+- [.../hub-spoke/hub-vnet.tf](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/hub-spoke/hub-vnet.tf)
+- [.../hub-spoke/hub-nva.tf](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/hub-spoke/hub-nva.tf)
+- [.../hub-spoke/spoke1.tf](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/hub-spoke/spoke1.tf)
+- [.../hub-spoke/spoke2.tf](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/hub-spoke/spoke2.tf)
 
 
 All example files can be found here:
