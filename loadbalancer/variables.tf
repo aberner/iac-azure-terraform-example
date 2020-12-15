@@ -94,3 +94,8 @@ variable "application_port" {
   description   = "the port that you want to expose to the external loadbalancer"
   default       = 80
 }
+
+variable "sub_id" {
+  description = "ID of your Azure subscription"
+  type        = string
+}

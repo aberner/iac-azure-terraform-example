@@ -1,8 +1,17 @@
 #Configure the Azure Provider
 provider "azurerm" {
-  #subscription_id = var.sub_id
+  subscription_id = var.sub_id
   version = ">= 2.33"
   features {}
+}
+
+terraform {
+  backend "azurerm" {
+    resource_group_name  = ""
+    storage_account_name = ""
+    container_name       = ""
+    key                  = "terraform.tfstate"
+  }
 }
 
 #Create Resource Group
