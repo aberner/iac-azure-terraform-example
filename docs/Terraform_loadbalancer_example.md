@@ -10,9 +10,11 @@ All example files can be found here:
 - [https://github.com/aberner/iac-azure-terraform-example/tree/main/loadbalancer](https://github.com/aberner/iac-azure-terraform-example/tree/main/loadbalancer)
 
 This folder contains the following files:
-- [https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/loadbalancersetup.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/loadbalancersetup.tf)
-- [https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/web.conf](https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/web.conf)
+- [https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/main.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/main.tf)
 - [https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/output.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/output.tf)
+- [https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/variables.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/variables.tf)
+- [https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/web.conf](https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/web.conf)
+
 
 
 ### Local configuration file
