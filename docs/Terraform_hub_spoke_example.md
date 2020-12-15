@@ -13,6 +13,7 @@ More information: [https://docs.microsoft.com/en-us/azure/architecture/reference
 
 This example contains the following files:
 - [.../hub-spoke/main.tf](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/hub-spoke/main.tf)
+- [.../hub-spoke/terraformstate.tf](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/hub-spoke/terraformstate.tf)
 - [.../hub-spoke/variables.tf](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/hub-spoke/variables.tf)
 - [.../hub-spoke/on-prem.tf](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/hub-spoke/on-prem.tf)
 - [.../hub-spoke/hub-vnet.tf](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/hub-spoke/hub-vnet.tf)
