@@ -9,3 +9,5 @@ Here is a list of some examples that you can use:
 - [Example 2 - set up a SQL server](Terraform_example_2.md)
 - [Example 3 - set up a app service with OWASP Juice Shop](Terraform_example_3.md)
 - [Example 4 - set up a windows server](Terraform_example_4.md)
+- [Example - hub and spoke](Terraform_hub_spoke_example.md)
+- [Example - loadbalancer](Terraform_loadbalancer_example.md)
