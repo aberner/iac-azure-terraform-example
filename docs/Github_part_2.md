@@ -5,7 +5,7 @@ This is needed to collaborate with others on Github.
 
 ---
 
-### Github branch: The basics
+## Github branch: The basics
    - Branching is the way to work on different versions of a repository at one time. By default your repository has one branch named ```main```
    - ```main``` should always represent the state in production, ergo all changes should be made on separte feature branches
    - 2 min introduction to branches: [GitHub & Git Foundations: Branch (youtube)](https://www.youtube.com/watch?v=H5GJfcp3p4Q&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=2)
@@ -26,13 +26,15 @@ This is needed to collaborate with others on Github.
 ### Example code change
    - Here is an example you can implement on your new feature branch: [Example: Adding a SQL server resource](Terraform_example_2.html)
 
-### Github Pull requests. The basics
+---
+
+## Github Pull requests. The basics
    - Pull Requests are the heart of collaboration on GitHub. 
    - When you open a pull request, you’re proposing your changes and requesting that your change will be reviewed and merged into the target branch
-   - More info: https://docs.github.com/articles/using-pull-requests
+   - More info: [https://docs.github.com/articles/using-pull-requests](https://docs.github.com/articles/using-pull-requests)
 
 **Exercise:**
-   1. Go to your project on https://github.com and choose ```Pull requests```
+   1. Go to your project on [https://github.com](https://github.com) and choose ```Pull requests```
    1. The list should be empty, so start with ```New pull request```
    1. In this first step you compare the changes and Github analysis if it's able to merge the two branches automatically 
       1. First choose where you want the changes to end up, your target branch
@@ -56,7 +58,9 @@ Note: If you need to, you can also compare across forks.
     All your changes are now moved to your target branch and the Pull request is closed.
 ```
 
-# More information
+---
 
-- https://www.youtube.com/githubguides
-- https://guides.github.com/
+## More information
+
+- [https://www.youtube.com/githubguides](https://www.youtube.com/githubguides)
+- [https://guides.github.com/](https://guides.github.com/)
