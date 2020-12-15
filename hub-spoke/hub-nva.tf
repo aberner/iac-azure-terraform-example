@@ -1,6 +1,6 @@
 locals {
   prefix-hub-nva         = "hub-nva"
-  hub-nva-location       = "northeurope"
+  hub-nva-location       = var.rg_location_cloud
   hub-nva-resource-group = "${var.rg_prefix}-hub-nva-rg"
 }
 

@@ -10,6 +10,7 @@ terraform {
 
 #Configure the Azure Provider
 provider "azurerm" {
-  version = ">= 2.33"
+  subscription_id = var.sub_id
+  version         = ">= 2.33"
   features {}
 }

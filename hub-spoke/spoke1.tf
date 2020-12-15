@@ -1,5 +1,5 @@
 locals {
-  spoke1-location       = "northeurope"
+  spoke1-location       = var.rg_location_cloud
   spoke1-resource-group = "${var.rg_prefix}-spoke1-vnet-rg"
   prefix-spoke1         = "spoke1"
 }

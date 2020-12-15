@@ -3,6 +3,16 @@ variable "location" {
   default     = "westeurope"
 }
 
+variable "rg_location_onprem" {
+  description = "location of resource group"
+  default = "westeurope"
+}
+
+variable "rg_location_cloud" {
+  description = "location of resource group in cloud"
+  default = "northeurope"
+}
+
 variable "username" {
   description = "Username for Virtual Machines"
   type        = string
@@ -25,5 +35,10 @@ variable "vpn_key" {
 
 variable "rg_prefix" {
   description = "Prefix used for resource groups"
+  type        = string
+}
+
+variable "sub_id" {
+  description = "Enter the subscription ID of your Azure subscription"
   type        = string
 }
