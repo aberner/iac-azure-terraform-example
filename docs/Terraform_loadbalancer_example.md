@@ -7,10 +7,27 @@ In this example you will create a loadbalancer with a public IP and a backend re
 ### Example files
 
 All example files can be found here:
-- https://github.com/aberner/iac-azure-terraform-example/tree/main/loadbalancer
+- [https://github.com/aberner/iac-azure-terraform-example/tree/main/loadbalancer](https://github.com/aberner/iac-azure-terraform-example/tree/main/loadbalancer)
 
 This folder contains the following files:
-- https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/loadbalancersetup.tf
-- https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/web.conf
-- https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/output.tf
+- [https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/loadbalancersetup.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/loadbalancersetup.tf)
+- [https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/web.conf](https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/web.conf)
+- [https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/output.tf](https://github.com/aberner/iac-azure-terraform-example/blob/main/loadbalancer/output.tf)
 
+
+### Local configuration file
+For this example you should have your own ```terraform.tfvars``` stored in the same folder.
+This file contains secrets and must not be under versioncontrol.
+
+```terraform.tfvars``` file should have the following content:
+
+```
+# local file, that is'nt under versioncontrol
+
+# choose your own prefix, identifying your resources
+app_name="****************"
+# generate your own secret and secure password
+linux_admin_password="****************"
+#sub_id can be found using the following command: az account show
+sub_id="****************"
+```
