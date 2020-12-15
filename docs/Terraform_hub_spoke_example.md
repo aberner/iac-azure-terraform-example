@@ -5,7 +5,7 @@ This example is build upon Microsoft Azure reference architecture for Hub-spoke.
 
 ### Architecture overview
 
-![Hub-spoke archiecture picture]https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/docs/hub-spoke.png)
+![Hub-spoke archiecture picture](https://raw.githubusercontent.com/aberner/iac-azure-terraform-example/main/docs/hub-spoke.png)
 
 More information: [https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 
