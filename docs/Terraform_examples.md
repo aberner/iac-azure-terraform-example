@@ -3,6 +3,7 @@
 
 Here is a list of some examples that you can use:
 
+- [Example - Setup up your Terraform state](Terraform_example_state_setup.md)
 - [Example - basic network setup](Terraform_example_0.md)
 - [Example 1 - Setup a linux virtual machine](Terraform_example_1_1.md)
 - [Example 1.1 - adding content to a linux server](Terraform_example_1.md)
