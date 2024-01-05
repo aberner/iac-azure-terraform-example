@@ -30,3 +30,4 @@ override.tf.json
 terraform.tfvars
 terraform.out
 *.bak
+.terraform.lock.hcl

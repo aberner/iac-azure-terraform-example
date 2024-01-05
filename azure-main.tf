@@ -1,7 +1,14 @@
 #Configure the Azure Provider
 provider "azurerm" {
-  version = ">= 2.33"
   features {}
+}
+
+terraform {
+	required_providers {
+		azurerm = {
+		  version = ">= 2.33"
+		}
+	  }
 }
 
 #Create Resource Group
@@ -121,7 +128,7 @@ resource "azurerm_linux_virtual_machine" "azure-web-vm" {
   source_image_reference {
     publisher = var.ubuntu-linux-publisher
     offer     = var.ubuntu-linux-offer
-    sku       = var.ubuntu-linux-18-sku
+    sku       = var.ubuntu-linux-sku
     version   = "latest"
   }
 

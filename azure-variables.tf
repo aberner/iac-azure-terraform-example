@@ -4,7 +4,7 @@
 variable "rg_location" {
   type        = string
   description = "Location of Resource Group"
-  default     = "West Europe"
+  default     = "Norway East"
 }
 
 # Vnet CIDR
@@ -52,13 +52,13 @@ variable "ubuntu-linux-publisher" {
 variable "ubuntu-linux-offer" {
   type        = string
   description = "Ubuntu Linux Offer used to build VMs"
-  default     = "UbuntuServer"
+  default     = "0001-com-ubuntu-server-jammy"
 }
 
-# Ubuntu Linux 18.x SKU used to build VMs
-variable "ubuntu-linux-18-sku" {
+# Ubuntu Linux x.x SKU used to build VMs
+variable "ubuntu-linux-sku" {
   type        = string
   description = "Ubuntu Linux Server SKU used to build VMs"
-  default     = "18.04-LTS"
+  default     = "22_04-lts"
 }
 
