@@ -131,6 +131,35 @@ resource "azurerm_linux_virtual_machine" "azure-web-vm" {
     storage_account_type = "Standard_LRS"
   }
 
+
+  # It's easy to transfer files or templates using Terraform.
+  provisioner "file" {
+    source      = "files/setup.sh"
+    destination = "/home/${var.linux_admin_user}/setup.sh"
+
+    connection {
+      type     = "ssh"
+      user     = var.linux_admin_user
+      password = var.linux_admin_password
+      host     = azurerm_public_ip.azure-web-ip.ip_address
+    }
+  }
+
+  # This shell script starts our Apache server and prepares the demo environment.
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /home/${var.linux_admin_user}/setup.sh",
+      "sudo /home/${var.linux_admin_user}/setup.sh",
+    ]
+
+    connection {
+      type     = "ssh"
+      user     = var.linux_admin_user
+      password = var.linux_admin_password
+      host     = azurerm_public_ip.azure-web-ip.ip_address
+    }
+  }
+
   tags = {
     environment = var.app_environment,
     responsible = var.department_id
