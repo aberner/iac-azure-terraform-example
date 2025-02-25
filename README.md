@@ -45,3 +45,6 @@ Remember to clean up and delete all the resources when the testing is done.
 
 * `terraform destroy`
 
+## Documentation
+
+For more information, refer to the [Threat Model](docs/threat_model.md).
