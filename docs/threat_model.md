@@ -15,6 +15,19 @@ The system is designed to set up Azure resources using Terraform scripts. The ar
 
 ## Assets
 
+```mermaid
+graph TD
+    A[Resource Group] --> B[Virtual Network]
+    B --> C[Subnet]
+    B --> D[Network Security Group]
+    B --> E[Public IP]
+    B --> F[Network Interface]
+    F --> G[Virtual Machine]
+    B --> H[Load Balancer]
+    H --> I[Virtual Machine Scale Set]
+    I --> G
+```
+
 1. **Resource Group**
    - Description: A container that holds related resources for an Azure solution.
    - Importance: High, as it organizes and manages resources.
